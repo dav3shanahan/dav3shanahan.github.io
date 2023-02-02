@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html><en-US></en-US>
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Terminal</title>
+  <title>Portfolio</title>
   <style>
     /* Add styling for a terminal-like interface */
+    #terminal-window {
+      background-color: #333;
+      border: 1px solid #000;
+      border-radius: 10px;
+      width: 500px;
+      height: 500px;
+      margin: 50px auto;
+    }
     #terminal {
       font-family: monospace;
       background-color: black;
       color: white;
       padding: 20px;
+      height: 400px;
+      overflow: scroll;
     }
     #input {
       background-color: black;
@@ -19,13 +29,26 @@
       padding: 10px;
       font-size: 16px;
     }
+    a {
+      color: white;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
-  <div id="terminal">
-    <p>Welcome to the Terminal!</p>
+  <div id="terminal-window">
+    <div id="terminal">
+      <p>Welcome to my portfolio!</p>
+      <p>Here's a list of available commands:</p>
+      <ul>
+        <li>about - Learn about me and my skills</li>
+        <li>resume - View my resume</li>
+        <li>portfolio - See some examples of my work</li>
+        <li>contact - Get in touch with me</li>
+      </ul>
+    </div>
+    <input type="text" id="input">
   </div>
-  <input type="text" id="input">
   <script>
     // Get references to the input and terminal elements
     const input = document.getElementById("input");
@@ -40,10 +63,50 @@
         // Clear the input field
         input.value = "";
 
-        // Add the input value as a new line in the terminal
-        terminal.innerHTML += `<p>${value}</p>`;
+        // Handle different commands
+        switch (value) {
+          case "about":
+            terminal.innerHTML += `
+              <p>My name is John Doe and I am a web developer with 5 years of experience. I specialize in creating beautiful and functional websites using HTML, CSS, and JavaScript. I also have experience with various front-end frameworks such as React and Vue.js. If you're looking for a talented and reliable web developer, I'm your guy!</p>
+            `;
+            break;
+          case "resume":
+            terminal.innerHTML += `
+              <p>You can view my resume <a href="https://www.example.com/resume" target="_blank">here</a>.</p>
+            `;
+            break;
+          case "portfolio":
+            terminal.innerHTML += `
+              <p>Here is my portfolio:</p>
+              <ul>
+                <li><a href="https://www.example.com/project1" target="_blank">Project 1</a></li>
+                <li><a href="https://www.example.com/project2" target="_blank">Project 2</a></li>
+                <li><a href="https://www.example.com/project3" target="_blank">Project 3</a></li>
+              </ul>
+            `;
+            break;
+          case "contact":
+            terminal.innerHTML += `
+              <p>You can reach me at the following addresses:</p>
+              <ul>
+                <li>Email: <a href="mailto:johndoe@example.com">johndoe@example.com</a></li>
+                <li>Twitter: <a href="https://twitter.com/dav3shanahan" target="_blank">@johndoe</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/davewshanahan" target="_blank">linkedin.com/in/johndoe</a></li>
+              </ul>
+            `;
+            break;
+          default:
+            terminal.innerHTML += `
+              <p>Invalid command. Try typing "about", "resume", "portfolio", or "contact".</p>
+            `;
+        }
+
+        // Scroll to the bottom of the terminal
+        terminal.scrollTop = terminal.scrollHeight;
       }
     });
   </script>
 </body>
 </html>
+
+
