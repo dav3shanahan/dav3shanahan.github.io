@@ -1,29 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html><en-US></en-US>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap" rel="stylesheet">
-  <link href="styles/all.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles/main.css">
-  <title>Héber Leonard</title>
+  <title>Terminal</title>
+  <style>
+    /* Add styling for a terminal-like interface */
+    #terminal {
+      font-family: monospace;
+      background-color: black;
+      color: white;
+      padding: 20px;
+    }
+    #input {
+      background-color: black;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <div class="menu">
-      <div class="buttons-flex">
-      <div class="button red"></div>
-      <div class="button yellow"></div>
-      <div class="button green"></div>
-    </div>
-    <div class="title">
-      <a href="https://github.com/dav3shanahan" target="_blank"><h1>github.com/dav3shanahan</h1></a>
-    </div>
-    </div>
-    <div id="app">
-    </div>
+  <div id="terminal">
+    <p>Welcome to the Terminal!</p>
   </div>
+  <input type="text" id="input">
+  <script>
+    // Get references to the input and terminal elements
+    const input = document.getElementById("input");
+    const terminal = document.getElementById("terminal");
 
-  <script src="scripts/main.js"></script>
+    // Listen for the enter key to be pressed in the input field
+    input.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        // Get the value of the input field
+        const value = input.value;
+
+        // Clear the input field
+        input.value = "";
+
+        // Add the input value as a new line in the terminal
+        terminal.innerHTML += `<p>${value}</p>`;
+      }
+    });
+  </script>
 </body>
 </html>
