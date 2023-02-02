@@ -1,17 +1,5 @@
 Terminal style Portfolio website
 
-Written using:
-
-- HTML5 (No Templates or Boilerplate used)
-- CSS3 (Pure CSS , no Frameworks or Libraries used)
-- TypeScript (ES6)
-
-Tools used:
-
-- VSCode
-- Webpack
-- Chrome Developer Tools
-
 ### Available commands
 
 - ⚡ `help` - The most basic command, this will show you the available commands.
